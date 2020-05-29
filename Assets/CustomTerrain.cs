@@ -13,6 +13,7 @@ public class CustomTerrain : MonoBehaviour
     public Terrain terrain;
     public TerrainData terrainData;
 
+    [Obsolete]
     public void RandomTerrain()
     {
         float[,] heightMap;
@@ -22,6 +23,33 @@ public class CustomTerrain : MonoBehaviour
             for (int z = 0; z < terrainData.heightmapResolution; z++)
             {
                 heightMap[x, z] = UnityEngine.Random.Range(randomHeightRange.x, randomHeightRange.y);
+            }
+        }
+        terrainData.SetHeights(0, 0, heightMap);
+    }
+
+    public void AddOtherLayerRandomTerrain()
+    {
+        float[,] heightMap = terrainData.GetHeights(0, 0, terrainData.heightmapResolution, terrainData.heightmapResolution);
+        for (int x = 0; x < terrainData.heightmapResolution; x++)
+        {
+            for (int z = 0; z < terrainData.heightmapResolution; z++)
+            {
+                heightMap[x, z] += UnityEngine.Random.Range(randomHeightRange.x, randomHeightRange.y);
+            }
+        }
+        terrainData.SetHeights(0, 0, heightMap);
+    }
+
+    public void ResetTerrain()
+    {
+        float[,] heightMap;
+        heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
+        for (int x = 0; x < terrainData.heightmapResolution; x++)
+        {
+            for (int z = 0; z < terrainData.heightmapResolution; z++)
+            {
+                heightMap[x, z] = 0;
             }
         }
         terrainData.SetHeights(0, 0, heightMap);

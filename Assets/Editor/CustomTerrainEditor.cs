@@ -33,6 +33,16 @@ public class CustomTerrainEditor : Editor
             {
                 terrain.RandomTerrain();
             }
+
+            if (GUILayout.Button("Add Other Layer of Random Heights"))
+            {
+                terrain.AddOtherLayerRandomTerrain();
+            }
+
+            if (GUILayout.Button("Reset Heights"))
+            {
+                terrain.ResetTerrain();
+            }
         }
 
         serializedObject.ApplyModifiedProperties();

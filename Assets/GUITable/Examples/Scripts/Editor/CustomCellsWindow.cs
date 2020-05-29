@@ -32,9 +32,9 @@ public class CustomCellsWindow : EditorWindow
 		
 		List<TableColumn> columns = new List<TableColumn>()
 		{
-			new TableColumn("String", 60f),
-			new TableColumn("Float", 50f),
-			new TableColumn("Object", 110f),
+			new TableColumn("String", TableColumn.Width(60f)),
+			new TableColumn("Float", TableColumn.Width(50f)),
+			new TableColumn("Object", TableColumn.Width(110f)),
 			new TableColumn("", TableColumn.Width(100f), TableColumn.EnabledTitle(false)),
 		};
 

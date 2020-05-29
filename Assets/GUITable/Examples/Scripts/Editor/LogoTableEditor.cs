@@ -18,9 +18,9 @@ public class LogoTableEditor : Editor
 
 		List<TableColumn> columns = new List<TableColumn>()
 		{
-			new TableColumn("G", 28f),
-			new TableColumn("U", 22f),
-			new TableColumn("I     ", 35f),
+			new TableColumn("G", TableColumn.Width(28f)),
+			new TableColumn("U", TableColumn.Width(22f)),
+			new TableColumn("I     ", TableColumn.Width(35f)),
 		};
 
 		List<List<TableCell>> rows = new List<List<TableCell>>();
